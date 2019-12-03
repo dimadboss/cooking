@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_104007) do
+ActiveRecord::Schema.define(version: 2019_12_03_061525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,28 +41,21 @@ ActiveRecord::Schema.define(version: 2019_11_25_104007) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "measure", force: :cascade do |t|
+  create_table "measures", force: :cascade do |t|
     t.string "munit", null: false
     t.decimal "capacity", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "product", force: :cascade do |t|
-    t.string "name", null: false
-    t.decimal "density"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "product_about", force: :cascade do |t|
+  create_table "product_abouts", force: :cascade do |t|
     t.integer "product_id", null: false
     t.string "description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "product_recipe", force: :cascade do |t|
+  create_table "product_recipes", force: :cascade do |t|
     t.integer "product_id", null: false
     t.integer "recipe_id", null: false
     t.decimal "quantity", null: false
@@ -71,7 +64,14 @@ ActiveRecord::Schema.define(version: 2019_11_25_104007) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "recipe", force: :cascade do |t|
+  create_table "products", force: :cascade do |t|
+    t.string "name", null: false
+    t.decimal "density"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "recipes", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "title", null: false
     t.text "description", null: false
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2019_11_25_104007) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "user", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "login", null: false
     t.string "password", null: false
     t.string "email", null: false
