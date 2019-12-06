@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :products, only: [:index]
+  resources :measures, only: [:index]
+  resources :recipes, only: [:index]
 end
