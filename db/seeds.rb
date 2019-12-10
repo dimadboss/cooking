@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 if Rails.env.development?
-  AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+  #AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
   measure1 = Measure.create(munit: 'ml', capacity: '0.000001')
   measure2 = Measure.create(munit: 'litre', capacity: '0.001')
   product1 = Product.create(name: 'coffee')
