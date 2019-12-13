@@ -10,4 +10,15 @@ Rails.application.routes.draw do
   resources :users, only: [:index]
   resources :product_abouts, only: [:index]
   resources :product_recipes, only: [:index]
+
+  # Routs for recipes
+  get '/recipes', to: 'recipes#index'
+  get '/recipes/new', to: 'recipes#new'
+  get '/recipes/:id/edit', to: 'recipes#edit'
+  get '/recipes/:id', to: 'recipes#show'
+  post '/recipes/:id', to: 'recipes#update'
+  delete '/recipes/:id', to: 'recipes#destroy'
+
+  # Routes for user
+  get '/users/new', to: 'users#new'
 end
