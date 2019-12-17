@@ -1,3 +1,6 @@
 <div>
   Все рецепты
+  <%= @recipes.each do |recipe|  %>
+  <%= recipe.title %>
+  <%= end %>
 </div>

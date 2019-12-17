@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index]
   resources :measures, only: [:index]
-  resources :recipes, only: [:index]
+  # resources :recipes, only: [:index]
   resources :users, only: [:index]
   resources :product_abouts, only: [:index]
   resources :product_recipes, only: [:index]
