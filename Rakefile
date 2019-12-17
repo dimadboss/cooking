@@ -4,6 +4,7 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+=begin
 
 require "bundler/gem_tasks"
 require "rake/testtask"
@@ -14,4 +15,4 @@ Rake::TestTask.new(:test) do |t|
   t.test_files = FileList["test/models/*_test.rb"]
 end
 
-task :default => :test
+task :default => :test=end
