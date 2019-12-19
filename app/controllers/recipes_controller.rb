@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
 
   def show
     # render 'recipes/show'
+    @recipes = Recipe.find_by(params[:id])
   end
 
   def new
@@ -18,7 +19,8 @@ class RecipesController < ApplicationController
   end
 
   def update
-    Recipe.find_by(params[:id])
+    recipe = Recipe.find_by(params[:id])
+    recipe.update_columns(params)
     redirect_to :show
   end
 
