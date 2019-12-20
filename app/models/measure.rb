@@ -6,6 +6,6 @@ class Measure < ApplicationRecord
   private
 
   def ensure_capacity_positive
-    this.errors << 'Capacity must be positive' if capacity <= 0
+    this.errors << 'Capacity must be positive' if !capacity.nil? and capacity <= 0
   end
 end
