@@ -2,6 +2,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   def test_user_validates
-    _(User.create(name: nil).valid?).must_equal false
+    assert_equal User.create(login: nil).valid?, false
+    assert_equal User.create(login: nil).valid?, false
   end
 end
