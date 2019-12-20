@@ -5,7 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-if Rails.env.development?
+#if Rails.env.development?
+  AdminUser.delete_all
+  Product.delete_all
+  User.delete_all
+  Recipe.delete_all
   AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
   measure1 = Measure.create(munit: 'ml', capacity: '0.000001')
   measure2 = Measure.create(munit: 'litre', capacity: '0.001')
@@ -15,5 +19,5 @@ if Rails.env.development?
   recipe1 = Recipe.create(user: user1, title: 'Кофе с молоком', description: 'Смешать кофе и молоко')
   product_recipe1 = ProductRecipe.create(product: product1, recipe: recipe1, quantity: '0.1', measure: measure2)
   product_recipe1 = ProductRecipe.create(product: product2, recipe: recipe1, quantity: '60', measure: measure1)
-end
+#end
 
