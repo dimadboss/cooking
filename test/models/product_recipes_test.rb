@@ -12,4 +12,15 @@ class ProductRecipesTest < ActiveSupport::TestCase
     assert_equal ProductRecipe.create(product: product, recipe: recipe, quantity: nil, measure: measure).valid?, false
     assert_equal ProductRecipe.create(product: product, recipe: recipe, quantity: 100, measure: nil).valid?, false
   end
+
+
+  def test_convert
+    product = Product.create(name: "Молоко", density: nil)
+    user = User.create(login: "test", password: "123", email: "ds-d@ya.ru")
+    recipe = Recipe.create(user: user, title: "Кофе с молоком", description: "Описание")
+    measure = Measure.create(munit: "ml", capacity: 0.000001)
+    measure_to = Measure.create(munit: "l", capacity: 0.001)
+    product_recipe = ProductRecipe.create(product: product, recipe: recipe, quantity: 42, measure: measure)
+    assert_equal product_recipe.convert(measure_to), 0.042
+  end
 end
