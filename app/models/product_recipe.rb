@@ -10,6 +10,6 @@ class ProductRecipe < ApplicationRecord
   private
 
   def ensure_quantity_positive
-    this.errors << 'Quantity must be positive' if quantity <= 0
+    this.errors << 'Quantity must be positive' if !quantity.nil? and quantity <= 0
   end
 end
