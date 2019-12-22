@@ -5,6 +5,7 @@ class ProductAboutsTest < ActiveSupport::TestCase
     product = Product.create(name: "Вода", density: nil)
     assert_equal ProductAbout.create(product: product, description: "Веганское").valid?, true
     assert_equal ProductAbout.create(product: product, description: nil).valid?, false
+    assert_equal ProductAbout.create(product: nil, description: "Веганское").valid?, false
   end
 
 end
