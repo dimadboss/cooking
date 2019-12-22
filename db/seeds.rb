@@ -10,6 +10,7 @@
   Product.delete_all
   User.delete_all
   Recipe.delete_all
+  ProductRecipe.delete_all
   AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
   measure1 = Measure.create(munit: 'ml', capacity: '0.000001')
   measure2 = Measure.create(munit: 'litre', capacity: '0.001')
