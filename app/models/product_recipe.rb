@@ -8,8 +8,7 @@ class ProductRecipe < ApplicationRecord
   before_validation :ensure_quantity_positive
 
   def convert(measure_to_id)
-    measure_to = Measure.find(measure_to_id)
-    self.quantity = self.quantity * self.measure.capacity / measure_to.capacity
+    self.quantity = self.quantity * self.measure.convert(measure_to_id)
     self.measure_id = measure_to_id
   end
 
