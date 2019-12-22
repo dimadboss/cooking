@@ -17,7 +17,9 @@
   product2 = Product.create(name: 'milk')
   user1 = User.create(login: 'dima', password: 'password', email: 'test@ya.ru')
   recipe1 = Recipe.create(user: user1, title: 'Кофе с молоком', description: 'Смешать кофе и молоко')
+  recipe2 = Recipe.create(user: user1, title: 'Кофе', description: 'Варить кофе в течение 7 минут')
   product_recipe1 = ProductRecipe.create(product: product1, recipe: recipe1, quantity: '0.1', measure: measure2)
   product_recipe1 = ProductRecipe.create(product: product2, recipe: recipe1, quantity: '60', measure: measure1)
+  product_recipe2 = ProductRecipe.create(product: product1, recipe: recipe2, quantity: '1', measure: measure2)
 #end
 

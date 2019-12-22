@@ -1,5 +1,5 @@
 class MeasuresController < ApplicationController
   def index
-    render json: Measure.all
+    @measures = Measure.all
   end
 end

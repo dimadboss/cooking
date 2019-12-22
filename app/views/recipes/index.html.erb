@@ -1,7 +1,18 @@
-<div>
-  Все рецепты
+<h1>Все рецепты</h1>
 
+<div>
   <%- @recipes.each do |recipe|  %>
-  <%= recipe.title %>
+    <h2><%= recipe.title %> <br/></h2>
+
+    <h3>Ингредиенты и пропорции:</h3>
+    <%- @product_recipes.each do |p_recipe|%>
+      <% if p_recipe.recipe_id == recipe.id %>
+        <%= Product.find(p_recipe.product_id).name %> — <%= p_recipe.quantity %> <%= Measure.find(p_recipe.measure_id).munit  %><br/>
+      <% end %>
+    <%- end %>
+
+    <h3>Описание:</h3>
+    <%= recipe.description %> <br/>
+
   <%- end %>
 </div>

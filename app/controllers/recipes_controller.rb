@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
     #render json: Recipe.all
     # render 'recipes/index'
     @recipes = Recipe.all
+    @product_recipes = ProductRecipe.all
   end
 
   def show

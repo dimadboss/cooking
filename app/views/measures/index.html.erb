@@ -1,0 +1,7 @@
+<h1>Справочник единиц измерения</h1>
+
+<div>
+  <%- @measures.each do |measure|  %>
+    <%= measure.munit %> = <%= measure.capacity %> м^3 <br />
+<%- end %>
+</div>
