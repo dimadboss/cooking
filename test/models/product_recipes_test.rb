@@ -11,6 +11,10 @@ class ProductRecipesTest < ActiveSupport::TestCase
     assert_equal ProductRecipe.create(product: product, recipe: nil, quantity: 100, measure: measure).valid?, false
     assert_equal ProductRecipe.create(product: product, recipe: recipe, quantity: nil, measure: measure).valid?, false
     assert_equal ProductRecipe.create(product: product, recipe: recipe, quantity: 100, measure: nil).valid?, false
+    Product.delete_all
+    User.delete_all
+    Measure.delete_all
+    Recipe.delete_all
   end
 
 
@@ -24,6 +28,10 @@ class ProductRecipesTest < ActiveSupport::TestCase
     product_recipe.convert(measure_to.id)
     assert_equal product_recipe.quantity, 0.042
     assert_equal product_recipe.measure.munit, "l"
+    Product.delete_all
+    User.delete_all
+    Measure.delete_all
+    Recipe.delete_all
   end
 
   def test_convert_2
@@ -36,5 +44,9 @@ class ProductRecipesTest < ActiveSupport::TestCase
     product_recipe.convert(measure_to.id)
     assert_in_delta product_recipe.quantity, 236.5882, 0.001
     assert_equal product_recipe.measure.munit, "ml"
+    Product.delete_all
+    User.delete_all
+    Measure.delete_all
+    Recipe.delete_all
   end
 end
