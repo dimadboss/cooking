@@ -49,4 +49,20 @@ class ProductRecipesTest < ActiveSupport::TestCase
     Measure.delete_all
     Recipe.delete_all
   end
+
+  def test_convert_3
+    product = Product.create(name: "Молоко", density: nil)
+    user = User.create(login: "test", password: "123", email: "ds-d@ya.ru")
+    recipe = Recipe.create(user: user, title: "Кофе с молоком", description: "Описание")
+    measure = Measure.create(munit: "l", capacity: 0.001)
+    measure_to = Measure.create(munit: "glass", capacity: 0.000236588)
+    product_recipe = ProductRecipe.create(product: product, recipe: recipe, quantity: 0.119, measure: measure)
+    product_recipe.convert(measure_to.id)
+    assert_in_delta product_recipe.quantity, 0.5, 0.1
+    assert_equal product_recipe.measure.munit, "glass"
+    Product.delete_all
+    User.delete_all
+    Measure.delete_all
+    Recipe.delete_all
+  end
 end
