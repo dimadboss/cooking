@@ -1,18 +1,79 @@
-<h1>Все рецепты</h1>
+<body>
+<header><div class="container">Все рецепты</div></header>
 
 <div>
   <%- @recipes.each do |recipe|  %>
     <h2><%= recipe.title %> <br/></h2>
 
-    <h3>Ингредиенты и пропорции:</h3>
+    <h3><div class="header-h3"> Ингредиенты и пропорции:</div></h3>
+    <div class="list">
     <%- @product_recipes.each do |p_recipe|%>
       <% if p_recipe.recipe_id == recipe.id %>
         <%= Product.find(p_recipe.product_id).name %> — <%= p_recipe.quantity %> <%= Measure.find(p_recipe.measure_id).munit  %><br/>
       <% end %>
     <%- end %>
+    </div>
 
     <h3>Описание:</h3>
     <%= recipe.description %> <br/>
 
   <%- end %>
 </div>
+
+</body>
+
+
+<style>
+  .container {
+    text-decoration: none;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 5px;
+    margin: 0 5px 0 30px;
+    font-size: 17px;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: color .2s;
+  }
+
+  .list {
+    text-decoration: none;
+    font-family: 'Times New Roman', sans-serif;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 1px;
+    margin: 0px 0 1px;
+    font-size: 14px;
+    display: inline-block;
+    transition: color .2s;
+  }
+
+  .header-h3 {
+    position: relative;
+    margin-bottom: .5rem;
+    text-align: left;
+  }
+  .header-h3 h3 {
+    display: inline-block;
+    background: #fff;
+    margin-bottom: 0;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: #f57f17;
+  }/*
+  .header-h3::after {
+    content: "";
+    position: absolute;
+    background: #f57f17;
+    height: .25rem;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    z-index: -999;
+  }*/
+</style>
+

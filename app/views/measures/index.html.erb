@@ -1,7 +1,7 @@
 <body>
 <header><div class="container">Справочник единиц измерения</div></header>
 
-<div>
+<div class="list">
   <%- @measures.each do |measure|  %>
     <%= measure.munit %> = <%= measure.capacity %> м^3 <br />
 <%- end %>
@@ -19,8 +19,20 @@
     position: relative;
     padding-bottom: 20px;
     margin: 0 34px 0 30px;
-    font-size: 17px;
+    font-size: 14px;
     text-transform: uppercase;
+    display: inline-block;
+    transition: color .2s;
+  }
+
+  .list {
+    text-decoration: none;
+    font-family: 'Times New Roman', sans-serif;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 20px;
+    margin: 0px 0 30px;
+    font-size: 14px;
     display: inline-block;
     transition: color .2s;
   }
