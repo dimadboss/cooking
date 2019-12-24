@@ -1,7 +1,28 @@
-<h1>Справочник единиц измерения</h1>
+<body>
+<header><div class="container">Справочник единиц измерения</div></header>
 
 <div>
   <%- @measures.each do |measure|  %>
     <%= measure.munit %> = <%= measure.capacity %> м^3 <br />
 <%- end %>
 </div>
+
+<footer></footer>
+
+</body>
+
+<style>
+  .container {
+    text-decoration: none;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 20px;
+    margin: 0 34px 0 30px;
+    font-size: 17px;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: color .2s;
+  }
+</style>
+

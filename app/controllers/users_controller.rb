@@ -4,6 +4,6 @@ class UsersController < ApplicationController
   end
 
   def new
-    render 'users/new'
+    #render 'users/new'
   end
 end
